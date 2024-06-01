@@ -1,21 +1,15 @@
-import models.Game;
-import models.Player;
-import type.Message;
-import utils.YesNotQuestion;
+import view.ConsoleView;
 
 public class Mastermind {
 
-    private final Player player;
+    private final ConsoleView consoleView;
 
     public Mastermind() {
-        player = new Player();
+        consoleView = new ConsoleView();
     }
 
     public void play(){
-        do {
-            player.greeting();
-            new Game(player).play();
-        }while (new YesNotQuestion().read(Message.RESUME.value()).isAffirmative());
+       consoleView.interact();
     }
 
     public static void main(String[] args) {
