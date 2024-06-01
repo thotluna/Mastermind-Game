@@ -10,28 +10,42 @@ public class Game {
     private static final int MAX_ATTEMPTS = 10;
     private final List<Attempt> attempts;
     private final Combination secret;
-    private final Player player;
 
-    public Game(Player player) {
-        secret = new SecretCombination(null);
-        this.player = player;
+    public Game() {
+        secret = new Combination(null);
         attempts = new ArrayList<>();
     }
 
-    public void play() {
-        Attempt lastAttempt;
-        do{
-            player.showHead(attempts.size(), secret.toStringSecret(), attempts);
+    public String getSecretString() {
+        return secret.toStringSecret();
+    }
 
-            Combination proposed = new Combination(player.getProposedCombination());
-            ResultComparative result = secret.compare(proposed);
+    public void calculateCombination(String proposedCombination) {
+        Combination proposed = new Combination(proposedCombination);
+        ResultComparative result = secret.compare(proposed);
 
-            lastAttempt = new Attempt(result, proposed);
-            attempts.add(lastAttempt);
+        Attempt lastAttempt = new Attempt(result, proposed);
+        attempts.add(lastAttempt);
+    }
+
+    public List<Attempt> getAttempts() {
+        return attempts;
+    }
+
+    public int getNumberAttempts() {
+        return attempts.size();
+    }
+
+    public Attempt getLastAttempt(){
+        return attempts.get(attempts.size() -1);
+    }
+
+    public Boolean isNotGameOver(){
+        return attempts.size() <= MAX_ATTEMPTS && getLastAttempt().isNoWinner();
+    }
 
 
-        }while(attempts.size() <= MAX_ATTEMPTS && lastAttempt.isNoWinner() );
-
-        player.signResult(lastAttempt.isWinner());
+    public boolean hasWinner() {
+        return getLastAttempt().isWinner();
     }
 }

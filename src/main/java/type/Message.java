@@ -6,7 +6,8 @@ public enum Message {
     PROPOSED("Propose a combination: "),
     WON("You've won!!! ;-)"),
     LOSER("You've lost!!! :-("),
-    RESUME("Do you want to continue?"),;
+    RESUME("Do you want to continue?"),
+    GOODBYE("Bye...");
 
     private final String message;
 
