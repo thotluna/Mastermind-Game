@@ -8,10 +8,8 @@ import java.util.List;
 public class Game {
 
     private static final int MAX_ATTEMPTS = 10;
-
     private final List<Attempt> attempts;
     private final Combination secret;
-
     private final Player player;
 
     public Game(Player player) {
