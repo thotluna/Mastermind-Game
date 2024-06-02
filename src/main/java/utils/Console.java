@@ -3,6 +3,7 @@ package utils;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+
 public class Console {
 
     private static Console instance;
@@ -29,10 +30,12 @@ public class Console {
         return input;
     }
 
+    @SuppressWarnings("unused")
     public String readString() {
         return this.readString("");
     }
 
+    @SuppressWarnings("unused")
     public int readInt(String title) {
         int input = 0;
         boolean ok = false;

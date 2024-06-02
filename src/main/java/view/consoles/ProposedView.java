@@ -1,10 +1,10 @@
-package view;
+package view.consoles;
 
 import models.Game;
 import models.validator.ValidatorHandler;
 import type.Message;
 
-public class ProposedView extends View {
+public class ProposedView extends ViewShow {
 
     private final Game game;
 

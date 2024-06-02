@@ -3,8 +3,12 @@ package view;
 import models.Game;
 import type.Message;
 import utils.YesNotQuestion;
+import view.consoles.GameView;
+import view.consoles.GoodbyeView;
+import view.consoles.GreetingView;
+import view.consoles.ViewShow;
 
-public class ConsoleView extends View {
+public class ConsoleView extends ViewShow {
     private final GreetingView greetingView;
     private final YesNotQuestion yesNotQuestionView;
     private GameView gameView;
