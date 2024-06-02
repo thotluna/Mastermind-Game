@@ -1,9 +1,9 @@
-package view;
+package view.consoles;
 
 import models.Game;
 import type.Message;
 
-public class ResultAttemptView extends View {
+public class ResultAttemptView extends ViewShow {
     private final Game game;
 
     public ResultAttemptView(Game game) {

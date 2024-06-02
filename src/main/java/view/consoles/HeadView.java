@@ -1,10 +1,10 @@
-package view;
+package view.consoles;
 
 import models.Attempt;
 import models.Game;
 import type.Message;
 
-public class HeadView extends View {
+public class HeadView extends ViewShow {
     private final Game game;
     public HeadView(Game game) {
         this.game = game;

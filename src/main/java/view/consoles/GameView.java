@@ -1,8 +1,8 @@
-package view;
+package view.consoles;
 
 import models.Game;
 
-public class GameView extends View {
+public class GameView extends ViewShow {
 
     private final Game game;
     private final HeadView headView;

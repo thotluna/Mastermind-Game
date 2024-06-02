@@ -1,10 +1,10 @@
 import view.ConsoleView;
 
-public class Mastermind {
+public class MastermindConsole {
 
     private final ConsoleView consoleView;
 
-    public Mastermind() {
+    public MastermindConsole() {
         consoleView = new ConsoleView();
     }
 
@@ -13,6 +13,6 @@ public class Mastermind {
     }
 
     public static void main(String[] args) {
-        new Mastermind().play();
+        new MastermindConsole().play();
     }
 }
