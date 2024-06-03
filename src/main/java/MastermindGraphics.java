@@ -1,3 +1,4 @@
+import controllers.Logic;
 import view.GraphicsView;
 import view.View;
 
@@ -9,7 +10,7 @@ public class MastermindGraphics extends Mastermind {
 
     @Override
     protected View createView() {
-        return new GraphicsView(startController, playController);
+        return new GraphicsView(logic);
     }
 
 

@@ -1,20 +1,20 @@
 package view.consoles;
 
-import controllers.PlayController;
+import controllers.Logic;
 import type.Message;
 
 public class HeadView extends ViewShow {
-    private final PlayController playController;
-    public HeadView(PlayController playController) {
-        this.playController = playController;
+    private final Logic logic;
+    public HeadView(Logic logic) {
+        this.logic = logic;
     }
 
     @Override
     public void interact() {
-          console.writeln(Message.N_ATTEMPTS.value(), playController.getNumberAttempts());
-        console.writeln(playController.getSecretString());
+          console.writeln(Message.N_ATTEMPTS.value(), logic.getNumberAttempts());
+        console.writeln(logic.getSecretString());
 
-        for (String attempt : playController.getAttempts()) {
+        for (String attempt : logic.getAttempts()) {
             console.writeln(attempt);
         }
     }

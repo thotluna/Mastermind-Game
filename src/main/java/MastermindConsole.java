@@ -1,3 +1,4 @@
+import controllers.Logic;
 import view.ConsoleView;
 import view.View;
 
@@ -9,7 +10,7 @@ public class MastermindConsole extends Mastermind {
 
     @Override
     protected View createView() {
-        return new ConsoleView(startController, playController, resumeController);
+        return new ConsoleView(logic);
     }
 
     public static void main(String[] args) {
