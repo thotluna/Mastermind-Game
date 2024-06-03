@@ -1,15 +1,26 @@
+import controllers.PlayController;
+import controllers.ResumeController;
+import controllers.StartController;
 import models.Game;
 import view.View;
 
 public abstract class Mastermind {
-    protected View view;
+
+    protected final View view;
+    protected final StartController startController;
+    protected final PlayController playController;
+    protected final ResumeController resumeController;
+    protected final Game game;
 
     protected Mastermind() {
-        Game game = new Game();
-        view = createView(game);
+        game = new Game();
+        startController = new StartController(game);
+        playController = new PlayController(game);
+        resumeController = new ResumeController(game);
+        view = createView();
     }
 
-    protected abstract View createView(Game game);
+    protected abstract View createView();
 
     public void play(){
         do {

@@ -1,33 +1,29 @@
 package view;
 
-import models.Game;
-import type.Message;
-import utils.YesNotQuestion;
+import controllers.PlayController;
+import controllers.ResumeController;
+import controllers.StartController;
 import view.consoles.GameView;
-import view.consoles.GoodbyeView;
 import view.consoles.GreetingView;
+import view.consoles.ResumeView;
 
 public class ConsoleView implements View {
     private final GreetingView greetingView;
-    private final YesNotQuestion yesNotQuestionView;
     private final GameView gameView;
-    private final GoodbyeView goodbyeView;
-    private  final  Game game;
+    private final ResumeView resumeView;
 
+    private final StartController startController;
 
-    public ConsoleView(Game game)  {
-        super();
-
+    public ConsoleView(StartController startController, PlayController playController, ResumeController resumeController) {
         greetingView = new GreetingView();
-        yesNotQuestionView = new YesNotQuestion();
-        goodbyeView = new GoodbyeView();
-        this.game = game;
-        gameView = new GameView(game);
+        this.startController = startController;
+        gameView = new GameView(playController);
+        resumeView = new ResumeView(resumeController);
     }
 
     @Override
     public void start() {
-        game.init();
+        startController.start();
         greetingView.interact();
     }
 
@@ -38,8 +34,6 @@ public class ConsoleView implements View {
 
     @Override
     public boolean resume() {
-        goodbyeView.interact();
-        return yesNotQuestionView.read(Message.RESUME.value()).isAffirmative();
-
+        return resumeView.interact() ;
     }
 }

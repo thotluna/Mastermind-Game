@@ -1,22 +1,27 @@
 package view;
 
-import models.Game;
+import controllers.PlayController;
+import controllers.StartController;
 import type.Message;
 import utils.Console;
 
 public class GraphicsView implements View {
 
-    private final Game game;
+    private final StartController startController;
+    private final  PlayController playController;
 
-    public GraphicsView(Game game) {
-        this.game = game;
+    public GraphicsView(StartController startController, PlayController playController) {
+
+        this.startController = startController;
+        this.playController = playController;
     }
 
     @Override
     public void start() {
         System.out.println("Graphics");
+        startController.start();
         Console.getInstance().writeln(Message.GREETING.value());
-        Console.getInstance().writeln(Message.N_ATTEMPTS.value(), game.getNumberAttempts());
+        Console.getInstance().writeln(Message.N_ATTEMPTS.value(), playController.getNumberAttempts());
     }
 
     @Override

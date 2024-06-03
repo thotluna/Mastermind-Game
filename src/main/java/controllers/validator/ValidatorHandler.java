@@ -1,4 +1,4 @@
-package models.validator;
+package controllers.validator;
 
 public class ValidatorHandler {
     private final Validator validator;

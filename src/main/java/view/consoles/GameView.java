@@ -1,20 +1,20 @@
 package view.consoles;
 
-import models.Game;
+import controllers.PlayController;
 
 public class GameView extends ViewShow {
 
-    private final Game game;
+    private final PlayController playController;
     private final HeadView headView;
     private final ProposedView proposedView;
     private final ResultAttemptView resultAttemptView;
 
 
-    public GameView(Game game) {
-        this.game = game;
-        headView = new HeadView(game);
-        proposedView = new ProposedView(game);
-        resultAttemptView = new ResultAttemptView(game);
+    public GameView(PlayController playController) {
+        this.playController = playController;
+        headView = new HeadView(playController);
+        proposedView = new ProposedView(playController);
+        resultAttemptView = new ResultAttemptView(playController);
     }
 
     @Override
@@ -22,7 +22,7 @@ public class GameView extends ViewShow {
         do {
             headView.interact();
             proposedView.interact();
-        }while (game.isNotGameOver());
+        }while (playController.isNotGameOver());
         resultAttemptView.interact();
     }
 }
