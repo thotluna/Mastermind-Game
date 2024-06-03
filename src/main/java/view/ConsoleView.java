@@ -1,6 +1,8 @@
 package view;
 
-import controllers.Logic;
+import controllers.PlayController;
+import controllers.ResumeController;
+import controllers.StartController;
 import view.consoles.GameView;
 import view.consoles.GreetingView;
 import view.consoles.ResumeView;
@@ -9,29 +11,26 @@ public class ConsoleView implements View {
     private final GreetingView greetingView;
     private final GameView gameView;
     private final ResumeView resumeView;
-    private final Logic logic;
 
-
-    public ConsoleView(Logic logic) {
-        this.logic = logic;
+    public ConsoleView() {
         greetingView = new GreetingView();
-        gameView = new GameView(logic);
-        resumeView = new ResumeView(logic);
+        gameView = new GameView();
+        resumeView = new ResumeView();
     }
 
     @Override
-    public void start() {
-        logic.start();
+    public void start(StartController controller) {
         greetingView.interact();
+        controller.start();
     }
 
     @Override
-    public void play() {
-        gameView.interact();
+    public void play(PlayController controller) {
+        gameView.interact(controller);
     }
 
     @Override
-    public boolean resume() {
-        return resumeView.interact() ;
+    public void resume(ResumeController controller) {
+        resumeView.interact(controller);
     }
 }

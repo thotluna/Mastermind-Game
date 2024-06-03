@@ -1,28 +1,24 @@
 package view.consoles;
 
-import controllers.Logic;
+import controllers.PlayController;
 
 public class GameView extends ViewShow {
-
-    private final Logic logic;
     private final HeadView headView;
     private final ProposedView proposedView;
     private final ResultAttemptView resultAttemptView;
 
-
-    public GameView(Logic logic) {
-        this.logic = logic;
-        headView = new HeadView(logic);
-        proposedView = new ProposedView(logic);
-        resultAttemptView = new ResultAttemptView(logic);
+    public GameView() {
+        headView = new HeadView();
+        proposedView = new ProposedView();
+        resultAttemptView = new ResultAttemptView();
     }
 
-    @Override
-    public void interact() {
+    public void interact(PlayController controller) {
         do {
-            headView.interact();
-            proposedView.interact();
-        }while (logic.isNotGameOver());
-        resultAttemptView.interact();
+            headView.interact(controller);
+            proposedView.interact(controller);
+        }while (controller.isNotGameOver());
+        resultAttemptView.interact(controller);
+        controller.nextState();
     }
 }
