@@ -1,4 +1,4 @@
-package models.validator;
+package controllers.validator;
 
 import models.Combination;
 import type.Error;

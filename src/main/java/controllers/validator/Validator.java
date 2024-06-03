@@ -1,4 +1,4 @@
-package models.validator;
+package controllers.validator;
 
 public abstract class Validator {
     private final Validator nextValidator;
