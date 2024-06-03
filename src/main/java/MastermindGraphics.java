@@ -1,4 +1,3 @@
-import controllers.Logic;
 import view.GraphicsView;
 import view.View;
 
@@ -10,12 +9,10 @@ public class MastermindGraphics extends Mastermind {
 
     @Override
     protected View createView() {
-        return new GraphicsView(logic);
+        return new GraphicsView();
     }
-
 
     public static void main(String[] args) {
         new MastermindGraphics().play();
     }
-
 }

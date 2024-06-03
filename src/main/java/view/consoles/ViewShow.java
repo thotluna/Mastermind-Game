@@ -9,6 +9,4 @@ public abstract class ViewShow {
         this.console = Console.getInstance();
     }
 
-    @SuppressWarnings("unused")
-    public abstract void interact();
 }

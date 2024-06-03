@@ -1,31 +1,27 @@
 package view;
 
-import controllers.Logic;
+import controllers.PlayController;
+import controllers.ResumeController;
+import controllers.StartController;
 import type.Message;
 import utils.Console;
 
 public class GraphicsView implements View {
 
-    private final Logic logic;
-    public GraphicsView(Logic logic) {
-        this.logic = logic;
-    }
-
     @Override
-    public void start() {
+    public void start(StartController controller) {
         System.out.println("Graphics");
-        logic.start();
+        controller.start();
         Console.getInstance().writeln(Message.GREETING.value());
-        Console.getInstance().writeln(Message.N_ATTEMPTS.value(), logic.getNumberAttempts());
     }
 
     @Override
-    public void play() {
-        Console.getInstance().writeln("Play");
+    public void play(PlayController controller) {
+        Console.getInstance().writeln(Message.N_ATTEMPTS.value(), controller.getNumberAttempts());
     }
 
     @Override
-    public boolean resume() {
-        return true;
+    public void resume(ResumeController controller) {
+        Console.getInstance().writeln("bye");
     }
 }

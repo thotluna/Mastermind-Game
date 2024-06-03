@@ -1,25 +1,23 @@
 package view.consoles;
 
-import controllers.Logic;
+import controllers.ResumeController;
 import type.Message;
 import utils.YesNotQuestion;
 
 public class ResumeView{
     private final GoodbyeView goodbyeView;
-    private final Logic logic;
 
-    public ResumeView(Logic logic) {
-        this.logic = logic;
+    public ResumeView() {
         goodbyeView = new GoodbyeView();
     }
 
-    public Boolean interact() {
+    public void interact(ResumeController controller) {
         boolean isResume = new YesNotQuestion().read(Message.RESUME.value()).isAffirmative();
         if(isResume){
-            logic.resume();
+            controller.resume();
         }else{
             goodbyeView.interact();
+            controller.nextState();
         }
-       return isResume;
     }
 }

@@ -1,51 +1,32 @@
 package controllers;
 
 import models.Game;
+import models.State;
+import models.StateValue;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Logic {
 
-    private final StartController startController;
-    private final PlayController playController;
-    private final ResumeController resumeController;
+    private final State state;
+    private final Map<StateValue, Controller> controllers;
 
-    public Logic(Game game) {
-        this.startController = new StartController(game);
-        this.playController = new PlayController(game);
-        this.resumeController = new ResumeController(game);
+    public Logic() {
+        this.state = new State();
+        Game game = new Game();
+        this.controllers = new HashMap<>();
+        this.controllers.put(StateValue.INITIAL, new StartController(game, state));
+        this.controllers.put(StateValue.IN_GAME, new PlayController(game, state));
+        this.controllers.put(StateValue.OUT_GAME, new ResumeController(game, state));
+        this.controllers.put(StateValue.NULL, null);
+
+    }
+    public Controller getController() {
+        return this.controllers.get(this.state.getState());
     }
 
-    public void start(){
-        startController.start();
-    }
-
-
-    public void resume() {
-        resumeController.resume();
-    }
-
-    public boolean isNotGameOver() {
-        return playController.isNotGameOver();
-    }
-
-    public int getNumberAttempts() {
-        return playController.getNumberAttempts();
-    }
-
-    public String getSecretString() {
-        return playController.getSecretString();
-    }
-
-    public List<String> getAttempts() {
-        return playController.getAttempts();
-    }
-
-    public boolean hasWinner() {
-        return playController.hasWinner();
-    }
-
-    public void calculateCombination(String combination) {
-        playController.calculateCombination(combination);
+    public boolean hasController(){
+        return this.getController() != null;
     }
 }

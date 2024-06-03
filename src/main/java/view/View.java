@@ -1,9 +1,13 @@
 package view;
 
+import controllers.PlayController;
+import controllers.ResumeController;
+import controllers.StartController;
+
 public interface View {
-    void start();
+    void start(StartController controller);
 
-    void play();
+    void play(PlayController controller);
 
-    boolean resume();
+    void resume(ResumeController controller);
 }

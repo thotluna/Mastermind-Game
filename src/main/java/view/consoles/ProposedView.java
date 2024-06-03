@@ -1,19 +1,12 @@
 package view.consoles;
 
-import controllers.Logic;
+import controllers.PlayController;
 import controllers.validator.ValidatorHandler;
 import type.Message;
 
 public class ProposedView extends ViewShow {
 
-    private final Logic logic;
-
-    public ProposedView(Logic logic) {
-        this.logic = logic;
-    }
-
-    @Override
-    public void interact() {
+    public void interact(PlayController controller) {
         String error;
         String combination;
         ValidatorHandler validatorHandler = new ValidatorHandler();
@@ -25,6 +18,6 @@ public class ProposedView extends ViewShow {
             }
         }while (error != null);
 
-        logic.calculateCombination(combination);
+        controller.calculateCombination(combination);
     }
 }

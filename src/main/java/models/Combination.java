@@ -11,8 +11,6 @@ public class Combination {
     public static final String PATTERN = "^(?!.*(.).*\1)[rgybmc]{4}$";
     private final List<Color> combination;
 
-
-
     protected Combination(String combination) {
         if(combination == null){
             this.combination = Combination.getRandomCombination();
