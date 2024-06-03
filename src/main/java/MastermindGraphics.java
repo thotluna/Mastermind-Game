@@ -1,15 +1,12 @@
+import models.Game;
 import view.GraphicsView;
+import view.View;
 
-public class MastermindGraphics {
+public class MastermindGraphics extends Mastermind {
 
-    private final GraphicsView graphicsView;
-
-    public MastermindGraphics() {
-        graphicsView = new GraphicsView();
-    }
-
-    public void play(){
-       graphicsView.interact();
+    @Override
+    protected View createView(Game game) {
+        return new GraphicsView(game);
     }
 
     public static void main(String[] args) {
