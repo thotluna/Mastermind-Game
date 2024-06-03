@@ -6,37 +6,40 @@ import utils.YesNotQuestion;
 import view.consoles.GameView;
 import view.consoles.GoodbyeView;
 import view.consoles.GreetingView;
-import view.consoles.ViewShow;
 
-public class ConsoleView extends ViewShow {
+public class ConsoleView implements View {
     private final GreetingView greetingView;
     private final YesNotQuestion yesNotQuestionView;
-    private GameView gameView;
+    private final GameView gameView;
     private final GoodbyeView goodbyeView;
+    private  final  Game game;
 
 
-    public ConsoleView() {
+    public ConsoleView(Game game)  {
         super();
 
         greetingView = new GreetingView();
         yesNotQuestionView = new YesNotQuestion();
         goodbyeView = new GoodbyeView();
-
-    }
-
-    private void initGame(){
-        Game game = new Game();
+        this.game = game;
         gameView = new GameView(game);
     }
 
     @Override
-    public void interact() {
-        do {
-            initGame();
-            greetingView.interact();
-            gameView.interact();
-        }while(yesNotQuestionView.read(Message.RESUME.value()).isAffirmative());
-        goodbyeView.interact();
+    public void start() {
+        game.init();
+        greetingView.interact();
     }
 
+    @Override
+    public void play() {
+        gameView.interact();
+    }
+
+    @Override
+    public boolean resume() {
+        goodbyeView.interact();
+        return yesNotQuestionView.read(Message.RESUME.value()).isAffirmative();
+
+    }
 }

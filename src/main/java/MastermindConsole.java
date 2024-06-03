@@ -1,15 +1,12 @@
+import models.Game;
 import view.ConsoleView;
+import view.View;
 
-public class MastermindConsole {
+public class MastermindConsole extends Mastermind {
 
-    private final ConsoleView consoleView;
-
-    public MastermindConsole() {
-        consoleView = new ConsoleView();
-    }
-
-    public void play(){
-       consoleView.interact();
+    @Override
+    protected View createView(Game game) {
+        return new ConsoleView(game);
     }
 
     public static void main(String[] args) {

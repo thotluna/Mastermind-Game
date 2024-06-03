@@ -8,10 +8,14 @@ import java.util.List;
 public class Game {
 
     private static final int MAX_ATTEMPTS = 10;
-    private final List<Attempt> attempts;
-    private final Combination secret;
+    private List<Attempt> attempts;
+    private Combination secret;
 
     public Game() {
+        init();
+    }
+
+    public void init() {
         secret = new Combination(null);
         attempts = new ArrayList<>();
     }
@@ -48,4 +52,6 @@ public class Game {
     public boolean hasWinner() {
         return getLastAttempt().isWinner();
     }
+
+
 }
