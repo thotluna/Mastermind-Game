@@ -1,18 +1,18 @@
 package view.consoles;
 
-import controllers.PlayController;
+import controllers.Logic;
 import type.Message;
 
 public class ResultAttemptView extends ViewShow {
-    private final PlayController playController;
+    private final Logic logic;
 
-    public ResultAttemptView(PlayController playController) {
-        this.playController = playController;
+    public ResultAttemptView(Logic logic) {
+        this.logic = logic;
     }
 
     @Override
     public void interact() {
-        if(playController.hasWinner()){
+        if(logic.hasWinner()){
             console.writeln(Message.WON.value());
         }else{
             console.writeln(Message.LOSER.value());

@@ -1,15 +1,15 @@
 package view.consoles;
 
-import controllers.PlayController;
+import controllers.Logic;
 import controllers.validator.ValidatorHandler;
 import type.Message;
 
 public class ProposedView extends ViewShow {
 
-    private final PlayController playController;
+    private final Logic logic;
 
-    public ProposedView(PlayController playController) {
-        this.playController = playController;
+    public ProposedView(Logic logic) {
+        this.logic = logic;
     }
 
     @Override
@@ -25,6 +25,6 @@ public class ProposedView extends ViewShow {
             }
         }while (error != null);
 
-        playController.calculateCombination(combination);
+        logic.calculateCombination(combination);
     }
 }

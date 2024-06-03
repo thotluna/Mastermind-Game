@@ -1,22 +1,15 @@
-import controllers.PlayController;
-import controllers.ResumeController;
-import controllers.StartController;
+import controllers.Logic;
 import models.Game;
 import view.View;
 
 public abstract class Mastermind {
 
+    protected final Logic logic;
     protected final View view;
-    protected final StartController startController;
-    protected final PlayController playController;
-    protected final ResumeController resumeController;
-    protected final Game game;
+
 
     protected Mastermind() {
-        game = new Game();
-        startController = new StartController(game);
-        playController = new PlayController(game);
-        resumeController = new ResumeController(game);
+        logic = new Logic(new Game());
         view = createView();
     }
 
