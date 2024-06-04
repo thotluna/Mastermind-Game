@@ -1,13 +1,7 @@
 package view;
 
-import controllers.PlayController;
-import controllers.ResumeController;
-import controllers.StartController;
+import controllers.ControllersVisitor;
 
-public interface View {
-    void start(StartController controller);
+public interface View extends ControllersVisitor {
 
-    void play(PlayController controller);
-
-    void resume(ResumeController controller);
 }

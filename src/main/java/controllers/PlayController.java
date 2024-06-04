@@ -13,6 +13,11 @@ public class PlayController extends Controller {
         super(game, state);
     }
 
+    @Override
+    public void accept(ControllersVisitor controllersVisitor) {
+        controllersVisitor.visit(this);
+    }
+
     public int getNumberAttempts() {
         return game.getNumberAttempts();
     }
