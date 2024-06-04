@@ -1,7 +1,5 @@
+import controllers.Controller;
 import controllers.Logic;
-import controllers.PlayController;
-import controllers.ResumeController;
-import controllers.StartController;
 import view.View;
 
 public abstract class Mastermind {
@@ -17,15 +15,11 @@ public abstract class Mastermind {
     protected abstract View createView();
 
     public void play(){
+        Controller controller;
         do {
-            if(logic.getController() instanceof StartController){
-                this.view.start((StartController) logic.getController());
-            }else{
-                if(logic.getController() instanceof PlayController){
-                    this.view.play((PlayController) logic.getController());
-                }else{
-                    this.view.resume((ResumeController) logic.getController());
-                }
+            controller = logic.getController();
+            if(controller != null){
+                controller.accept(this.view);
             }
 
         } while (this.logic.hasController());

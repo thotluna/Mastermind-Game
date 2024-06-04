@@ -19,18 +19,18 @@ public class ConsoleView implements View {
     }
 
     @Override
-    public void start(StartController controller) {
+    public void visit(StartController startController) {
         greetingView.interact();
-        controller.start();
+        startController.start();
     }
 
     @Override
-    public void play(PlayController controller) {
-        gameView.interact(controller);
+    public void visit(PlayController playController) {
+        gameView.interact(playController);
     }
 
     @Override
-    public void resume(ResumeController controller) {
-        resumeView.interact(controller);
+    public void visit(ResumeController resumeController) {
+        resumeView.interact(resumeController);
     }
 }

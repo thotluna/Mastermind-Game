@@ -9,19 +9,19 @@ import utils.Console;
 public class GraphicsView implements View {
 
     @Override
-    public void start(StartController controller) {
+    public void visit(StartController startController) {
         System.out.println("Graphics");
-        controller.start();
+        startController.start();
         Console.getInstance().writeln(Message.GREETING.value());
     }
 
     @Override
-    public void play(PlayController controller) {
-        Console.getInstance().writeln(Message.N_ATTEMPTS.value(), controller.getNumberAttempts());
+    public void visit(PlayController playController) {
+        Console.getInstance().writeln(Message.N_ATTEMPTS.value(), playController.getNumberAttempts());
     }
 
     @Override
-    public void resume(ResumeController controller) {
+    public void visit(ResumeController resumeController) {
         Console.getInstance().writeln("bye");
     }
 }
