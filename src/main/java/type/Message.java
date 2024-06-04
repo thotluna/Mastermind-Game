@@ -7,7 +7,10 @@ public enum Message {
     WON("You've won!!! ;-)"),
     LOSER("You've lost!!! :-("),
     RESUME("Do you want to continue?"),
-    GOODBYE("Bye...");
+    GOODBYE("Bye..."),
+    PLAY_MENU_TITLE("Precione el numero de la opción deceado: "),
+    PROPOSED_COMMAND("Intentarlo"),
+    REDO_COMMAND(""), UNDO_COMMAND("");
 
     private final String message;
 

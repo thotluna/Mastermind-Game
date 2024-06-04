@@ -45,4 +45,22 @@ public class PlayController extends Controller {
     public boolean hasWinner() {
         return game.hasWinner();
     }
+
+    public boolean isRedoable() {
+        //Todo: Pending implementation
+        return false;
+    }
+
+    public void redo() {
+    //Todo: Pending implementation
+    }
+
+    public boolean isUndoable() {
+        //Todo: Pending implementation
+        return false;
+    }
+
+    public void undo() {
+        //Todo: Pending implementation
+    }
 }

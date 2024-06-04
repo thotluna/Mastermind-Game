@@ -27,6 +27,7 @@ public class ConsoleView implements View {
     @Override
     public void visit(PlayController playController) {
         gameView.interact(playController);
+
     }
 
     @Override
