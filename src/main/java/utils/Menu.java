@@ -7,9 +7,12 @@ public class Menu {
     private final List<CommandBase> commandList;
     private final String title;
 
+    private final Console console;
+
     public Menu(String title) {
         this.title = title;
         this.commandList = new ArrayList<>();
+        this.console = Console.getInstance();
     }
 
     public void addCommand(CommandBase command){
@@ -23,13 +26,16 @@ public class Menu {
         int posibleComenad;
         do {
             for (int i = 0; i < commands.size(); i++) {
-                Console.getInstance().writeln("%d.- %S", i+1, commands.get(i).getTitle());
+                console.writeln("%d.- %S", i+1, commands.get(i).getTitle());
             }
+
+            console.writeln("");
+
             posibleComenad = Console.getInstance().readInt(title);
 
             if(posibleComenad < 1 || posibleComenad > commands.size()){
                 error = "error";
-                Console.getInstance().writeError("Only numbers between 1 and" + commands.size() + "allowed " );
+                console.writeError("Only numbers between 1 and" + commands.size() + "allowed " );
             }
         }while (error != null);
         commands.get(posibleComenad -1).execute();
