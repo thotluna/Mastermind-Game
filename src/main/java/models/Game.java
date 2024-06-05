@@ -48,10 +48,11 @@ public class Game {
         return attempts.size() <= MAX_ATTEMPTS && getLastAttempt().isNoWinner();
     }
 
-
     public boolean hasWinner() {
         return getLastAttempt().isWinner();
     }
 
-
+    public void reset() {
+        this.init();
+    }
 }

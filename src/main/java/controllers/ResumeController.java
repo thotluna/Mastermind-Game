@@ -1,10 +1,11 @@
 package controllers;
 
-import models.Game;
+import models.Session;
 
 public class ResumeController extends Controller{
-    public ResumeController(Game game, Session session) {
-        super(game, session);
+
+    public ResumeController(Session session) {
+        super(session);
     }
 
     @Override
@@ -13,7 +14,6 @@ public class ResumeController extends Controller{
     }
 
     public void resume() {
-        game.init();
         session.reset();
     }
 

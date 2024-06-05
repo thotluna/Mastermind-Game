@@ -1,15 +1,13 @@
 package controllers;
 
-import models.Game;
+import models.Session;
 
 public abstract class Controller {
 
-    protected final Game game;
     protected final Session session;
 
-    protected Controller(Game game, Session session) {
+    protected Controller(Session session) {
         this.session = session;
-        this.game = game;
     }
 
     public void nextState(){
