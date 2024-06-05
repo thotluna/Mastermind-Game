@@ -12,5 +12,6 @@ public class HeadView extends ViewShow {
         for (String attempt : playController.getAttempts()) {
             console.writeln(attempt);
         }
+        console.writeln("");
     }
 }
