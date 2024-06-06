@@ -1,16 +1,15 @@
 package controllers;
 
 import models.Attempt;
-import models.Game;
-import models.State;
+import models.Session;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PlayController extends Controller {
 
-    public PlayController(Game game, State state) {
-        super(game, state);
+    public PlayController(Session session) {
+        super(session);
     }
 
     @Override
@@ -19,30 +18,50 @@ public class PlayController extends Controller {
     }
 
     public int getNumberAttempts() {
-        return game.getNumberAttempts();
+        return session.getNumberAttempts();
     }
 
     public boolean isNotGameOver() {
-        return game.isNotGameOver();
+        return session.isNotGameOver();
     }
 
     public String getSecretString() {
-        return game.getSecretString();
+        return session.getSecretString();
     }
 
     public List<String> getAttempts() {
         List<String> list = new ArrayList<>();
-        for (Attempt attempt : game.getAttempts()) {
+        for (Attempt attempt : session.getAttempts()) {
             list.add(attempt.toString());
         }
         return list;
     }
 
     public void calculateCombination(String combination) {
-        game.calculateCombination(combination);
+        session.calculateCombination(combination);
     }
 
     public boolean hasWinner() {
-        return game.hasWinner();
+        return session.hasWinner();
+    }
+
+    public void register(){
+        this.session.register();
+    }
+
+    public void undo() {
+        session.undo();
+    }
+
+    public boolean isUndoable(){
+        return session.isUndoable();
+    }
+
+    public void redo() {
+        session.redo();
+    }
+
+    public boolean isRedoable(){
+        return session.isRedoable();
     }
 }

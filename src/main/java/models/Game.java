@@ -48,10 +48,19 @@ public class Game {
         return attempts.size() <= MAX_ATTEMPTS && getLastAttempt().isNoWinner();
     }
 
-
     public boolean hasWinner() {
         return getLastAttempt().isWinner();
     }
 
+    public void reset() {
+        this.init();
+    }
 
+    public Memento createMemento() {
+        return new Memento(this.attempts);
+    }
+
+    public void setMemento(Memento memento){
+        this.attempts = memento.getAttemptList();
+    }
 }

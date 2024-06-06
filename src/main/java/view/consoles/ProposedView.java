@@ -16,8 +16,10 @@ public class ProposedView extends ViewShow {
             if(error != null){
                 console.writeError(error);
             }
+            console.writeln("");
         }while (error != null);
 
         controller.calculateCombination(combination);
+        controller.register();
     }
 }

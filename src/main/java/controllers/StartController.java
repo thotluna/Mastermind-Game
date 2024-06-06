@@ -1,12 +1,11 @@
 package controllers;
 
-import models.Game;
-import models.State;
+import models.Session;
 
 public class StartController extends Controller {
 
-    public StartController(Game game, State state) {
-        super(game, state);
+    public StartController(Session session) {
+        super(session);
     }
 
     @Override
@@ -15,7 +14,7 @@ public class StartController extends Controller {
     }
 
     public void start(){
-        game.init();
-        state.nextState();
+        session.reset();
+        session.nextState();
     }
 }
