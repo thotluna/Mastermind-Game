@@ -5,15 +5,18 @@ import java.util.List;
 public class Session {
     private final Game game;
     private final State state;
+    private final Registry registry;
 
     public Session(Game game) {
         this.game = game;
         this.state = new State();
+        this.registry = new Registry(game);
     }
 
     public void reset(){
         this.game.reset();
-        state.reset();
+        this.state.reset();
+        this.registry.reset();
     }
 
     public void nextState(){
@@ -47,6 +50,26 @@ public class Session {
 
     public boolean hasWinner() {
         return game.hasWinner();
+    }
+
+    public void register(){
+        this.registry.register();
+    }
+
+    public void undo() {
+        this.registry.undo();
+    }
+
+    public boolean isUndoable(){
+        return this.registry.undoable();
+    }
+
+    public void redo() {
+        this.registry.redo();
+    }
+
+    public boolean isRedoable(){
+        return this.registry.redoable();
     }
 
 

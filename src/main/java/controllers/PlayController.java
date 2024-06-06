@@ -45,4 +45,23 @@ public class PlayController extends Controller {
         return session.hasWinner();
     }
 
+    public void register(){
+        this.session.register();
+    }
+
+    public void undo() {
+        session.undo();
+    }
+
+    public boolean isUndoable(){
+        return session.isUndoable();
+    }
+
+    public void redo() {
+        session.redo();
+    }
+
+    public boolean isRedoable(){
+        return session.isRedoable();
+    }
 }

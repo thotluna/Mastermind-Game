@@ -55,4 +55,12 @@ public class Game {
     public void reset() {
         this.init();
     }
+
+    public Memento createMemento() {
+        return new Memento(this.attempts);
+    }
+
+    public void setMemento(Memento memento){
+        this.attempts = memento.getAttemptList();
+    }
 }

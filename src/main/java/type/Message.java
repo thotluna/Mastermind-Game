@@ -10,7 +10,8 @@ public enum Message {
     GOODBYE("Bye..."),
     PLAY_MENU_TITLE("Precione el numero de la opción deceado: "),
     PROPOSED_COMMAND("Intentarlo"),
-    REDO_COMMAND(""), UNDO_COMMAND("");
+    REDO_COMMAND("Redo"),
+    UNDO_COMMAND("Undo");
 
     private final String message;
 

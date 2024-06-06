@@ -20,5 +20,6 @@ public class ProposedView extends ViewShow {
         }while (error != null);
 
         controller.calculateCombination(combination);
+        controller.register();
     }
 }

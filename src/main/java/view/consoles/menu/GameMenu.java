@@ -8,7 +8,8 @@ public class GameMenu extends Menu {
     public GameMenu(PlayController controller, String title) {
         super(title);
         this.addCommand(new ProposedCommand(controller));
-
+        this.addCommand(new UndoCommand(controller));
+        this.addCommand(new RedoCommand(controller));
 
     }
 }
